@@ -6,9 +6,9 @@ import products from '../products';
 
 function ProductScreen() {
     const { id } = useParams();
-    const product = products.find((p) => p._id === (id));
-
-    if (!product) return null;
+    const product = products.find((p) => String(p._id) === id);
+  
+    if (!product) return null; // or fallback UI
 
     return (
         <div>
